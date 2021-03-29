@@ -17,5 +17,6 @@ namespace NumberProcessor.Models
         public abstract void Push(T data);
         public abstract T Pop();
         public abstract T Peek();
+        public abstract bool IsEmpty { get; }
     }
 }
