@@ -5,7 +5,7 @@ using System.Text;
 
 namespace NumberProcessor
 {
-    public static class StringOperations
+    internal static class StringOperations
     {
         /// <summary>
         /// The input string is in the format "5 10 15 DUP +".
@@ -14,26 +14,26 @@ namespace NumberProcessor
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static (IEnumerable<int> Numbers, IEnumerable<string> Operations) ToData(this string input)
+        internal static (IEnumerable<int> Numbers, IEnumerable<string> Operations) ToData(this string input)
         {
             if (string.IsNullOrEmpty(input) == true)
                 throw new InvalidOperationException("Input can be empty.");
 
-            var data = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            var allValues = input.Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-            var numbers = GetNumbersFromString(data);
+            var numbers = GetAllNumbers(allValues);
 
-            var operations = data.TakeLast(data.Length - numbers.Count);
+            var operations = allValues.TakeLast(allValues.Length - numbers.Count);
 
             return (numbers, operations);
         }
 
-        private static List<int> GetNumbersFromString(string[] data)
+        private static List<int> GetAllNumbers(string[] values)
         {
             var numbers = new List<int>();
-            for (var i = 0; i < data.Length; i++)
+            for (var i = 0; i < values.Length; i++)
             {
-                if (int.TryParse(data[i], out int number) == false)
+                if (int.TryParse(values[i], out int number) == false)
                 {
                     break;
                 }

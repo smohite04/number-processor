@@ -14,8 +14,10 @@ namespace NumberProcessor.Core
         internal static IStackOperation Create(string operation)
         {
             var key = operation.ToUpper();
+
             if (_operations.ContainsKey(key) == false)
                 throw new InvalidOperationException($"Operation :\"{key}\" is not supported by the system.");
+
             return _operations[key];
         }
     }

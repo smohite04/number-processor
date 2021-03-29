@@ -11,14 +11,13 @@ namespace NumberProcessor
             try
             {
                 var data = input.ToData();
-                return data.ProcessNumbers();
+                return data.PerformOperations();
             }
             catch (InvalidOperationException ex)
             {
                 //TODO: log exceptions
                 return -1;
-            }
-            
+            }            
         }
     }
 }

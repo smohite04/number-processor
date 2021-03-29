@@ -7,12 +7,12 @@ namespace NumberProcessor.Core
 {
     public static class Extension
     {
-        public static IEnumerable<IStackOperation> ToOperations(this IEnumerable<string> operators)
+        public static IEnumerable<IStackOperation> ToOperations(this IEnumerable<string> stackOperators)
         {
             var operations = new List<IStackOperation>();
-            foreach (var op in operators)
+            foreach (var stackOperator in stackOperators)
             {                
-                var operation = OperatorFactory.Create(op);
+                var operation = OperatorFactory.Create(stackOperator);
                 operations.Add(operation);
             }
             return operations;

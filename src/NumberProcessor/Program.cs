@@ -18,7 +18,7 @@ namespace NumberProcessor
                 var input = Console.ReadLine();
                 var output = Processor.Process(input);
                 Console.WriteLine($"output:{output}");
-                Console.WriteLine("Want to test another input?. Please Press \"N to exit.\"");
+                Console.WriteLine("Want to test another input?. Please Press \"N\" to exit.\"");
                 shouldContinue = Console.ReadLine().Trim();
             }
         }

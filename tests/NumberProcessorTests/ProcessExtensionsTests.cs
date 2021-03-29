@@ -7,14 +7,14 @@ using FluentAssertions;
 
 namespace NumberProcessorTests
 {
-    public class NumberProcessorTests
+    public class ProcessExtensionsTests
     {
         [Theory]
         [MemberData(nameof(Data))]
         public void Operate_Should_Return_Valid_Output_When_Valid_Data_Is_Provided_For_Processing(List<int> values, List<string> operations, int expectedOutcome)
         {
             var data = (values, operations);
-            var outcome = data.ProcessNumbers();
+            var outcome = data.PerformOperations();
             outcome.Should().Be(expectedOutcome);
 
         }
@@ -23,7 +23,7 @@ namespace NumberProcessorTests
         public void Operate_Should_Throw_Exception_When_InValid_Data_Is_Provided_For_Processing(List<int> values, List<string> operations)
         {
             var data = (values, operations);
-            Func<int> func = ()=> data.ProcessNumbers();
+            Func<int> func = () => data.PerformOperations();
             func.Should().Throw<InvalidOperationException>();
         }
         public static IEnumerable<object[]> Data()
