@@ -1,7 +1,5 @@
-﻿using NumberProcessor.Models;
-using System;
+﻿using NumberProcessor.Core;
 using System.Collections.Generic;
-using System.Text;
 
 namespace NumberProcessor
 {

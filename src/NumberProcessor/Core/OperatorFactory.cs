@@ -6,7 +6,10 @@ namespace NumberProcessor.Core
     internal class OperatorFactory
     {
         private static readonly Dictionary<string, IStackOperation> _operations = new Dictionary<string, IStackOperation>() {
-            {"DUP", new DuplicateStackOperation() }
+            {"DUP", new DuplicateStackOperation() },
+            {"POP", new PopStackOperation() },
+             {"+", new AdditionStackOperation() },
+              {"-", new SubstractionStackOperation() },
         };
         internal static IStackOperation Create(string operation)
         {
