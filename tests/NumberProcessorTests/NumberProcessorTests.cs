@@ -13,8 +13,8 @@ namespace NumberProcessorTests
         [MemberData(nameof(Data))]
         public void Operate_Should_Return_Valid_Output_When_Valid_Data_Is_Provided_For_Processing(List<int> values, List<string> operations, int expectedOutcome)
         {
-            var processor = new NumberProcessor.Core.NumberProcessor();
-            var outcome = processor.Process(values, operations);
+            var processor = new DataProcessor();
+            var outcome = processor.ProcessMumbers(values, operations);
             outcome.Should().Be(expectedOutcome);
 
         }

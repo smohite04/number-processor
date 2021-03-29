@@ -9,18 +9,17 @@ namespace NumberProcessor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var a = new List<string>();
-            a.Add("1");
-            a.Add("2");
-            Console.WriteLine(a[1]);
-            Process process = Process.GetCurrentProcess();
-            long used = process.PrivateMemorySize64;
-            Console.WriteLine(used);
-            var x = "13 7 20 DUP + -";
-            var data = new StringBuilder();
-
-
+            Console.WriteLine("Welcome. Please Enter the data to be processed along with the opertions in below format:");
+            Console.WriteLine("format example: \"5 10 15 DUP - + POP\"");
+            string shouldContinue = "Y";
+            while (shouldContinue.Equals("N", StringComparison.OrdinalIgnoreCase) == false)
+            {
+                Console.WriteLine("Input:");
+                var input = Console.ReadLine();
+                var output = Processor.Process(input);
+                Console.WriteLine($"output:{output}");
+                Console.WriteLine("Want to test another input?. Please Press \"N to exit.\"");
+            }
         }
     }
 }

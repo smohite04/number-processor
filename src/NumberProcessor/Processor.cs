@@ -6,9 +6,19 @@ namespace NumberProcessor
 {
     public class Processor
     {
-        public int Process(string input)
+        public static int Process(string input)
         {
-            return 0;
+            try
+            {
+                var data = input.ToData();
+                return data.ProcessNumbers();
+            }
+            catch (InvalidOperationException ex)
+            {
+                //TODO: log exceptions
+                return -1;
+            }
+            
         }
     }
 }
