@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace NumberProcessor.Models
 {
@@ -11,6 +9,9 @@ namespace NumberProcessor.Models
         
         private int _topIndex = - 1;
         public override int Count =>  _data.Count;
+
+        public override bool IsEmpty => (Count == 0);
+
         public ListBasedStack()
         {
         }
@@ -22,7 +23,7 @@ namespace NumberProcessor.Models
         
         public override T Peek()
         {
-            if (_topIndex == -1)
+            if (IsEmpty == true)
                 throw new StackEmptyException();
 
             return _data[_topIndex];
@@ -30,7 +31,7 @@ namespace NumberProcessor.Models
 
         public override T Pop()
         {
-            if (_topIndex == -1)
+            if (IsEmpty == true)
                 throw new StackEmptyException();
 
             var topData = _data[_topIndex];
@@ -43,6 +44,6 @@ namespace NumberProcessor.Models
         {
             _data.Add(data);
             _topIndex++;
-        }
+        }       
     }
 }
