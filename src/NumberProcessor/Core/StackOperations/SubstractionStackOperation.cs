@@ -5,7 +5,7 @@ namespace NumberProcessor.Core
 {
     /// <summary>
     /// Subtract operation with sign "-", takes top two elements, subtracts them and pushes back to stack.
-    /// It is expected that stack must have atleast 2 elements in it and top element should be greater than one below it.
+    /// It is expected that stack must have atleast 2 elements in it and top element should be greater than or equal to one below it.
     /// </summary>
     public class SubstractionStackOperation : IStackOperation
     {

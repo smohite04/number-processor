@@ -8,8 +8,8 @@ namespace NumberProcessor.Core
         private static readonly Dictionary<string, IStackOperation> _operations = new Dictionary<string, IStackOperation>() {
             {"DUP", new DuplicateStackOperation() },
             {"POP", new PopStackOperation() },
-             {"+", new AdditionStackOperation() },
-              {"-", new SubstractionStackOperation() },
+            {"+", new AdditionStackOperation() },
+            {"-", new SubstractionStackOperation() },
         };
         internal static IStackOperation Create(string operation)
         {
