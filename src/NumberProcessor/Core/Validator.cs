@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NumberProcessor
 {
-    public static class Ensure
+    public static class Validator
     {
         public static void EnsureDataValid<T>(this IEnumerable<T> data)
         {
