@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 namespace NumberProcessor.Core
 {
-    internal class OperatorFactory
+    internal class OperationFactory
     {
-        private static readonly Dictionary<string, IStackOperation> _operations = new Dictionary<string, IStackOperation>() {
-            {"DUP", new DuplicateStackOperation() },
-            {"POP", new PopStackOperation() },
-            {"+", new AdditionStackOperation() },
-            {"-", new SubstractionStackOperation() },
+        private static readonly Dictionary<string, IOperation> _operations = new Dictionary<string, IOperation>() {
+            {Constants.Operations.Duplicate , new DuplicateOperation() },
+            {Constants.Operations.Pop , new PopOperation() },
+            {Constants.Operations.Add, new AddOperation() },
+            {Constants.Operations.Subtract, new SubstractOperation() },
         };
-        internal static IStackOperation Create(string operation)
+        internal static IOperation Create(string operation)
         {
             var key = operation.ToUpper();
 

@@ -9,9 +9,9 @@ namespace NumberProcessor
         {
                 var stack = data.numbersToBeProcessed.ToDataStack();
                 var stackOperations = data.operationsToBePerformed.ToOperations();
-                foreach (var stackOperator in stackOperations)
+                foreach (var stackOperation in stackOperations)
                 {
-                    stackOperator.Operate(stack);
+                    stackOperation.Operate(stack);
                 }
                 return stack.Peek();
         }

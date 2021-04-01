@@ -7,19 +7,18 @@ namespace NumberProcessor.Core
 {
     public static class Extension
     {
-        public static IEnumerable<IStackOperation> ToOperations(this IEnumerable<string> stackOperators)
+        public static IEnumerable<IOperation> ToOperations(this IEnumerable<string> operations)
         {
-            var operations = new List<IStackOperation>();
-            foreach (var stackOperator in stackOperators)
+            var stackOperations = new List<IOperation>();
+            foreach (var operation in operations)
             {                
-                var operation = OperatorFactory.Create(stackOperator);
-                operations.Add(operation);
+                var stackOperation = OperationFactory.Create(operation);
+                stackOperations.Add(stackOperation);
             }
-            return operations;
+            return stackOperations;
         }
         public static Models.Stack<int> ToDataStack(this IEnumerable<int> data)
         {
-            //TODO : for multiple stack implementation can introduce factory
             return new ListBasedStack<int>(data);
         }
     }

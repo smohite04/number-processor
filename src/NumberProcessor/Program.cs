@@ -9,7 +9,7 @@ namespace NumberProcessor
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome. Please Enter the data to be processed along with the opertions in below format:");
+            Console.WriteLine($"Welcome. Please Enter the numbers to be processed followed by the opertions.{Environment.NewLine}Supported Operations are DUP POP - +.{Environment.NewLine}Please refer format example given below.");
             Console.WriteLine("format example: \"5 10 15 DUP - + POP\"");
             string shouldContinue = "Y";
             while (shouldContinue.Equals("N", StringComparison.OrdinalIgnoreCase) == false)
@@ -18,7 +18,7 @@ namespace NumberProcessor
                 var input = Console.ReadLine();
                 var output = Processor.Process(input);
                 Console.WriteLine($"output:{output}");
-                Console.WriteLine("Want to test another input?. Please Press \"N\" to exit.\"");
+                Console.WriteLine("Want to check another input?. Please Press \"N\" to exit.\"");
                 shouldContinue = Console.ReadLine().Trim();
             }
         }

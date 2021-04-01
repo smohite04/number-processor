@@ -2,9 +2,9 @@
 
 namespace NumberProcessor.Core
 {
-    public interface IStackOperation
+    public interface IOperation
     {
-        string StackOperator { get; }
+        string Operation { get; }
         void Operate(Stack<int> stack);
     }
 }

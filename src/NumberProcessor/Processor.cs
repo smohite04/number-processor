@@ -15,7 +15,6 @@ namespace NumberProcessor
             }
             catch (InvalidOperationException ex)
             {
-                //TODO: log exceptions
                 return -1;
             }            
         }

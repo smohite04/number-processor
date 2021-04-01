@@ -7,15 +7,15 @@ namespace NumberProcessor.Core
     /// Duplicate operation, duplicates the top element in stack.
     /// If stack is empty, when duplication is requested, the operation should fail.
     /// </summary>
-    public class DuplicateStackOperation : IStackOperation
+    public class DuplicateOperation : IOperation
     {
-        public string StackOperator => "DUP";
+        public string Operation => Constants.Operations.Duplicate;
 
         public void Operate(Stack<int> stack)
         {
             if (stack.IsEmpty == true)
             {
-                throw new InvalidOperationException($"At least one element must exist in stack to perform \"{StackOperator}\" operation.");
+                throw new InvalidOperationException($"At least one element must exist in stack to perform \"{Operation}\" operation.");
             }
 
             var data = stack.Peek();
