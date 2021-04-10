@@ -5,6 +5,6 @@ namespace NumberProcessor.Core
     public interface IOperation
     {
         string Operation { get; }
-        void Operate(Stack<int> stack);
+        Stack<int> Operate(Stack<int> stack);
     }
 }

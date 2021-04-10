@@ -11,15 +11,16 @@ namespace NumberProcessor.Core
     {
         public string Operation => Constants.Operations.Duplicate;
 
-        public void Operate(Stack<int> stack)
+        public Stack<int> Operate(Stack<int> stack)
         {
             if (stack.IsEmpty == true)
             {
                 throw new InvalidOperationException($"At least one element must exist in stack to perform \"{Operation}\" operation.");
             }
-
-            var data = stack.Peek();
-            stack.Push(data);
+            var output = stack.Clone();
+            var data = output.Peek();
+            output.Push(data);
+            return output;
         }
     }
 }

@@ -9,11 +9,12 @@ namespace NumberProcessor
         {
                 var stack = data.numbersToBeProcessed.ToDataStack();
                 var stackOperations = data.operationsToBePerformed.ToOperations();
+                Models.Stack<int> outputStack = stack.Clone();
                 foreach (var stackOperation in stackOperations)
                 {
-                    stackOperation.Operate(stack);
+                    outputStack = stackOperation.Operate(outputStack);
                 }
-                return stack.Peek();
+                return outputStack.Peek();
         }
     }
 }

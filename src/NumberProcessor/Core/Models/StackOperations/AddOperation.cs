@@ -11,16 +11,17 @@ namespace NumberProcessor.Core
     {
         public string Operation => Constants.Operations.Add;
 
-        public void Operate(Stack<int> stack)
-        {
+        public Stack<int> Operate(Stack<int> stack)
+        {          
             if (stack.Count<2)
             {
                 throw new InvalidOperationException($"At least two element must exist in stack to perform \"{Operation}\" operation.");
             }
-
-            var firstElement = stack.Pop();
-            var secondElement = stack.Pop();
-            stack.Push(firstElement + secondElement);
+            var output = stack.Clone();
+            var firstElement = output.Pop();
+            var secondElement = output.Pop();
+            output.Push(firstElement + secondElement);
+            return output;
         }
     }
 }

@@ -44,6 +44,11 @@ namespace NumberProcessor.Models
         {
             _data.Add(data);
             _topIndex++;
-        }       
+        }
+
+        public override Stack<T> Clone()
+        {
+           return new ListBasedStack<T>(_data);
+        }
     }
 }

@@ -11,19 +11,21 @@ namespace NumberProcessor.Core
     {
         public string Operation => Constants.Operations.Subtract;
 
-        public void Operate(Stack<int> stack)
+        public Stack<int> Operate(Stack<int> stack)
         {
-            if (stack.Count<2)
+            if (stack.Count < 2)
             {
                 throw new InvalidOperationException($"At least two element must exist in stack to perform \"{Operation}\" operation.");
             }
-            var firstElement = stack.Pop();
-            var secondElement = stack.Pop();
+            var output = stack.Clone();
+            var firstElement = output.Pop();
+            var secondElement = output.Pop();
 
-            if(firstElement<secondElement)
+            if (firstElement < secondElement)
                 throw new InvalidOperationException($"The top element must be greater than element below it in stack to perform \"{Operation}\" operation.");
 
-            stack.Push(firstElement - secondElement);
+            output.Push(firstElement - secondElement);
+            return output;
         }
     }
 }

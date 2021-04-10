@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NumberProcessor.Models;
+﻿using NumberProcessor.Models;
 
 namespace NumberProcessor.Core
 {
@@ -12,9 +9,11 @@ namespace NumberProcessor.Core
     {
         public string Operation => Constants.Operations.Pop;
 
-        public void Operate(Models.Stack<int> stack)
+        public Stack<int> Operate(Stack<int> stack)
         {
-            stack.Pop();
+            var output = stack.Clone();
+            output.Pop();
+            return output;
         }
 
     }
