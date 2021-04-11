@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using NumberProcessor;
-using NumberProcessor.Models;
+using NumberProcessor.Core.Models;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -12,7 +12,7 @@ namespace NumberProcessorTests
         [Fact]
         public void Stack_Creation_Should_Throw_Exception_When_Collection_Is_Null()
         {
-            Func<NumberProcessor.Models.Stack<int>> func =  ()=> new ListBasedStack<int>(null);
+            Func<NumberProcessor.Core.Models.Stack<int>> func =  ()=> new ListBasedStack<int>(null);
             func.Should().NotBeNull();
             func.Should().Throw<InvalidOperationException>().WithMessage("Stack can not be initialized with null collection.");
         }

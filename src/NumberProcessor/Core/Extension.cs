@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using NumberProcessor.Models;
+using NumberProcessor.Core.Models;
 
 namespace NumberProcessor.Core
 {
@@ -19,7 +19,8 @@ namespace NumberProcessor.Core
         }
         public static Models.Stack<int> ToDataStack(this IEnumerable<int> data)
         {
-            return new ListBasedStack<int>(data);
+            // return new ListBasedStack<int>(data);
+            return new LinkedListBasedStack<int>(data);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace NumberProcessor.Models
+namespace NumberProcessor.Core.Models
 {
     public class ListBasedStack<T> : Stack<T>
     {
@@ -11,16 +11,15 @@ namespace NumberProcessor.Models
         public override int Count =>  _data.Count;
 
         public override bool IsEmpty => (Count == 0);
-
         public ListBasedStack()
         {
         }
         public ListBasedStack(IEnumerable<T> data) : base(data)
-        {            
-                _data = data.ToList();
-                _topIndex = _data.Count - 1;            
+        {
+            _data = data.ToList();
+            _topIndex = _data.Count - 1;
         }
-        
+
         public override T Peek()
         {
             if (IsEmpty == true)

@@ -1,4 +1,4 @@
-﻿using NumberProcessor.Models;
+﻿using NumberProcessor.Core.Models;
 using System;
 
 namespace NumberProcessor.Core

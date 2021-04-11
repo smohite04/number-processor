@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NumberProcessor.Models
+namespace NumberProcessor.Core.Models
 {
     public abstract class Stack<T>
     {     

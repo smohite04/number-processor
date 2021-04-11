@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NumberProcessor.Models;
-
-namespace NumberProcessor.Core
+﻿namespace NumberProcessor.Core
 {
     /// <summary>
     /// POP operation, removes the top element in stack.
