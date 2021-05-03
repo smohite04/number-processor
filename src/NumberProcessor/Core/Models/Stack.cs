@@ -18,5 +18,7 @@ namespace NumberProcessor.Models
         public abstract T Pop();
         public abstract T Peek();
         public abstract bool IsEmpty { get; }
+        public abstract Stack<T> Clone();
+        public abstract IEnumerable<T> GetAllElements();
     }
 }

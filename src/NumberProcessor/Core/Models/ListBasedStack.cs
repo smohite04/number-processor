@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NumberProcessor.Models
 {
-    public class ListBasedStack<T> : Stack<T>
+    public class ListBasedStack<T> : Stack<T>, IEquatable<ListBasedStack<T>>
     {
         private List<T> _data { get; } = new List<T>();
         
@@ -11,7 +12,7 @@ namespace NumberProcessor.Models
         public override int Count =>  _data.Count;
 
         public override bool IsEmpty => (Count == 0);
-
+        
         public ListBasedStack()
         {
         }
@@ -44,6 +45,51 @@ namespace NumberProcessor.Models
         {
             _data.Add(data);
             _topIndex++;
-        }       
+        }
+
+        public override Stack<T> Clone()
+        {
+            return new ListBasedStack<T>(_data);
+        }
+        public override IEnumerable<T> GetAllElements()
+        {
+            return _data;
+        }
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as ListBasedStack<T>);
+        }
+
+        public bool Equals(ListBasedStack<T> other)
+        {
+            if (other == null || other.Count != this.Count)
+                return false;
+
+            var otherData = other.GetAllElements().ToList();
+            for (var index = 0; index < this.Count; index++)
+            {
+                if (_data[index].Equals(otherData[index]) == false)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(_data);
+        }
+        
+
+        public static bool operator ==(ListBasedStack<T> stack1, ListBasedStack<T> stack2)
+        {
+            return EqualityComparer<ListBasedStack<T>>.Default.Equals(stack1, stack2);
+        }
+
+        public static bool operator !=(ListBasedStack<T> stack1, ListBasedStack<T> stack2)
+        {
+            return !(stack1 == stack2);
+        }
     }
 }

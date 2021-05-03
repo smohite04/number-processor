@@ -7,9 +7,9 @@ namespace NumberProcessor.Core
     {
         private static readonly Dictionary<string, IOperation> _operations = new Dictionary<string, IOperation>() {
             {Constants.Operations.Duplicate , new DuplicateOperation() },
-            {Constants.Operations.Pop , new PopOperation() },
-            {Constants.Operations.Add, new AddOperation() },
-            {Constants.Operations.Subtract, new SubstractOperation() },
+            //{Constants.Operations.Pop , new PopOperation() },
+            //{Constants.Operations.Add, new AddOperation() },
+            //{Constants.Operations.Subtract, new SubstractOperation() },
         };
         internal static IOperation Create(string operation)
         {
